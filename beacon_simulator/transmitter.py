@@ -36,6 +36,9 @@ theta = np.linspace(0, 2*angle, sampling)
 theta, r = np.meshgrid(theta, r)
 
 H = M / (4*np.pi*r**3)*np.sqrt(1+3*np.cos(theta)**2)
+plt.title("Magnetic field magnitude in polar coordinates")
+plt.xlabel("$\\theta$")
+plt.ylabel("Radius")
 plt.imshow(H, cmap='hot')
 plt.show()
 
@@ -52,6 +55,12 @@ r = np.sqrt(x**2+y**2) + damper
 theta = np.arctan(y/x)
 
 H = M / (4*np.pi*r**3)*np.sqrt(1+3*np.cos(theta)**2)
+plt.title("Magnetic field magnitude in cartesian coordinates")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.xticks([])
+plt.yticks([])
+
 plt.imshow(H, cmap='hot')
 plt.show()
 
