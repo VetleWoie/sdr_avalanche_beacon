@@ -22,7 +22,7 @@ max_freq_dev=1000
 nfft=77000
 
 # how many samples to step when doing an fft
-step=770
+step=20000
 
 def spectrogram(z,nfft=77000,step=770,sr=768e3,wf=ss.hann(77000)):
     n_steps=int((len(z)-nfft)//step)
@@ -87,7 +87,10 @@ plt.ylabel("SNR/standard deviation")
 plt.show()
 
 # amount of power from beacon divided by one standard deviation
-peak_beacon_power = total_blip_pwr[max_idx]/std_estimate
+beacon_blip_power_for_detection = total_blip_pwr[max_idx]/std_estimate
+
+# unnormalized peak detected power (for mapping power as a function of position)
+beacon_blip_power_for_mapping = total_blip_pwr[max_idx]
 
 
 # make sure no negative value
